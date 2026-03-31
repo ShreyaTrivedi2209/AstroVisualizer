@@ -1,0 +1,333 @@
+/* ==========================================================================
+   Global layout & typography
+   Palette: orchid white / chrome white / masala / warm black / vivid vermilion
+   ========================================================================== */
+
+:root {
+  --bg: #fffcf2;          /* orchid white */
+  --bg-elevated: #f4eee4; /* light card background */
+  --bg-header: #f0e9df;   /* subtle top bar */
+  --fg: #252422;          /* warm black */
+  --muted: #6b645b;       /* soft neutral text */
+  --accent: #eb5e28;      /* vivid vermilion */
+  --accent-soft: rgba(235, 94, 40, 0.12);
+  --border: #ddd0c1;      /* chrome white border */
+  --danger: #d14334;
+  --frame: #403d39;       /* masala */
+  --radius-lg: 26px;
+  --radius-md: 16px;
+  --radius-sm: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--accent); /* bold frame colour */
+  color: var(--fg);
+}
+
+.app-root {
+  min-height: calc(100vh - 48px);
+  max-width: 1180px;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(37, 36, 34, 0.08);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 26px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-header);
+}
+
+.app-header-icon {
+  font-size: 24px;
+}
+
+.app-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.app-subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Main layout
+   ========================================================================== */
+
+.app-main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 320px;
+  min-width: 280px;
+  background-color: var(--bg-elevated);
+  border-right: 1px solid var(--border);
+  padding: 18px 18px 24px;
+  overflow-y: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 18px 22px 22px;
+  overflow-y: auto;
+  min-width: 0;
+  background-color: var(--bg);
+}
+
+/* ==========================================================================
+   Panels & controls (left rail)
+   ========================================================================== */
+
+.panel {
+  background-color: var(--bg);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 14px 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.panel-title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 8px 0 4px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: #fdf7ee;
+  color: var(--fg);
+  font-size: 13px;
+}
+
+.text-input::placeholder {
+  color: #b1a89c;
+}
+
+.text-input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-soft);
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.slider {
+  margin-top: 6px;
+}
+
+.primary-button {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-color: var(--accent);
+  color: #fffdf8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+}
+
+.primary-button:hover {
+  background-color: #d85120;
+  box-shadow: 0 10px 24px rgba(235, 94, 40, 0.24);
+}
+
+.primary-button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.status-text {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.results-container {
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   Tabs – pill navigation across top content
+   ========================================================================== */
+
+.tabs {
+  margin-bottom: 14px;
+  border-bottom: none !important;
+}
+
+.tab {
+  padding: 6px 14px;
+  font-size: 13px;
+  background-color: transparent;
+  border-radius: 999px !important;
+  border: 1px solid transparent !important;
+  margin-right: 6px;
+}
+
+.tab--selected {
+  background-color: #252422 !important;
+  color: #fffdf8 !important;
+  border-color: #252422 !important;
+}
+
+.tab-content {
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   Chart & controls row (right pane top)
+   ========================================================================== */
+
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-elevated);
+  margin-bottom: 16px;
+}
+
+.control {
+  flex: 1 1 150px;
+  min-width: 150px;
+}
+
+.chart-loading {
+  background-color: var(--bg-elevated);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  padding: 6px;
+}
+
+.main-chart {
+  height: 520px;
+}
+
+/* ==========================================================================
+   Tables & stats (cards)
+   ========================================================================== */
+
+.table-container,
+.stats-container {
+  background-color: var(--bg-elevated);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 10px 10px 6px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.dash-table-container .dash-spreadsheet-container {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.dash-spreadsheet-menu {
+  display: none;
+}
+
+.dash-spreadsheet td,
+.dash-spreadsheet th {
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
+  border-color: var(--border) !important;
+  font-size: 11px;
+}
+
+.dash-spreadsheet tr:nth-child(even) td {
+  background-color: #f8f2ea !important;
+}
+
+.dash-spreadsheet tr:hover td {
+  background-color: #f3ede4 !important;
+}
+
+.dash-spreadsheet th {
+  background-color: #f0e9df !important;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Responsive tweaks
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .app-root {
+    margin: 12px;
+    border-radius: 20px;
+  }
+
+  .app-main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
