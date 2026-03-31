@@ -28,6 +28,5 @@ pip install astroquery astropy plotly dash pandas numpy scipy
 python astrovisualizer.py
 ```
 
-Open **http://127.0.0.1:8050** in your browser.
 
 ---
